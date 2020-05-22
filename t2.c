@@ -11,49 +11,15 @@
 #include <sys/mman.h>
 #include <string.h>
 
-void write_with_mmap(char *input)
-{
-
-    const char *path = "log.dat";
-
-    int fd = open(path, O_RDWR | O_CREAT | O_TRUNC, 0644);
-
-    if (fd == -1)
-    {
-        perror("Error opening file\n");
-        exit(0);
-    }
-
-    int size = strlen(input);
-
-    if (lseek(fd, size, SEEK_SET) == -1)
-    {
-        perror("Error at lseek\n");
-        exit(0);
-    }
-
-    write(fd, "", 1);
-
-    char *log_map = mmap(0, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-    if (log_map == MAP_FAILED)
-    {
-        perror("Error at mmap\n");
-        exit(0);
-    }
-
-    for (int i = 0; i < size; i++)
-        log_map[i] = input[i];
-
-    close(fd);
-}
-
 int fd;
-
-struct timespec start, stop;
-
-long nanoseconds()
+int fs;
+struct timespec start;
+#define BILLION 1000000000L;
+double nanoseconds()
 {
     struct timespec stop;
+
+    double s;
 
     if (clock_gettime(CLOCK_REALTIME, &stop) == -1)
     {
@@ -61,8 +27,8 @@ long nanoseconds()
         return EXIT_FAILURE;
     }
 
-    long res = stop.tv_nsec - start.tv_nsec;
-    return res;
+    s = (stop.tv_sec - start.tv_sec) + (double)(stop.tv_nsec - start.tv_nsec) / (double)BILLION;
+    return s;
 }
 
 struct Queue
@@ -143,8 +109,8 @@ typedef struct
     int max_val;
     int molecule_id;
     char *molecule_type;
-    char *creation_time;
-    char *end_time;
+    double creation_time;
+    double end_time;
     long time_in_nanoseconds;
 } MOLECULE_STRUCT;
 
@@ -153,22 +119,18 @@ typedef struct
     int max_val;
     int atom_id;
     char *atom_type;
-    char *creation_time;
-    char *end_time;
+    double creation_time;
+    double end_time;
     long time_in_nanoseconds;
 } ATOM_STRUCT;
 
 typedef struct
 {
     int nr_reactie;
-    char *reaction_time;
+    double reaction_time;
     char *reaction_type;
     long time_in_nanoseconds;
-
 } REACTION_STRUCT;
-
-time_t rawtime;
-struct tm *timeinfo;
 
 int big_equation_counter = 0;
 int hcl_counter = 0;
@@ -186,18 +148,19 @@ void *final_func(void *sent_value)
         printf("Stopping\n");
     else
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         big_equation_counter++;
         REACTION_STRUCT reac;
         reac.nr_reactie = big_equation_counter;
         reac.reaction_type = "2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3";
-        reac.reaction_time = asctime(timeinfo);
+        reac.reaction_time = nanoseconds();
 
-        fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        write(fs, &reac, sizeof(reac));
+
+        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         char toWrite[150];
-        sprintf(toWrite, "\nREACTIE - TipReactie: %s, NrReactie: %d, moment de timp: %s\n",
+        sprintf(toWrite, "\nREACTIE - TipReactie: %s, NrReactie: %d, Moment de timp: %lf\n",
                 reac.reaction_type, reac.nr_reactie, reac.reaction_time);
         write(fd, toWrite, strlen(toWrite));
         toWrite[0] = '\0';
@@ -209,21 +172,14 @@ void *final_func(void *sent_value)
                 "HCl", hcl1, "Fe(NO3)2", feno1);
         write(fd, toWrite, strlen(toWrite));
 
-
         toWrite[0] = '\0';
-        sprintf(toWrite, "TERMINARE_MOLECULA - TipMolecula %s, NrMolecula: %d, moment de timp: %s\n",
-                "2HCl", hcl1, asctime(timeinfo));
+        sprintf(toWrite, "TERMINARE_MOLECULA - TipMolecula %s, NrMolecula: %d, Moment de timp: %lf\n",
+                "2HCl", hcl1, nanoseconds());
         write(fd, toWrite, strlen(toWrite));
-         toWrite[0] = '\0';
-        sprintf(toWrite, "TERMINARE_MOLECULA - TipMolecula %s, NrMolecula: %d, moment de timp: %s\n",
-                "Fe(NO3)2", feno1, asctime(timeinfo));
+        toWrite[0] = '\0';
+        sprintf(toWrite, "TERMINARE_MOLECULA - TipMolecula %s, NrMolecula: %d, Moment de timp: %lf\n",
+                "Fe(NO3)2", feno1, nanoseconds());
         write(fd, toWrite, strlen(toWrite));
-
-        if (big_equation_counter == (int)aux)
-        {
-            sprintf(toWrite, "\nCONDITIE_DE_FINAL - %s\n", asctime(timeinfo));
-            write(fd, toWrite, strlen(toWrite));
-        }
     }
     pthread_mutex_unlock(&final_th_mutex);
 }
@@ -247,9 +203,6 @@ pthread_mutex_t hcl_th_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void *hcl_func(void *sent_value)
 {
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-
     long aux = (long)sent_value;
 
     pthread_mutex_lock(&hcl_th_mutex);
@@ -257,14 +210,17 @@ void *hcl_func(void *sent_value)
     no_of_hcl++;
 
     MOLECULE_STRUCT molec;
-    molec.creation_time = asctime(timeinfo);
+    molec.creation_time = nanoseconds();
     molec.max_val = (int)aux;
     molec.molecule_id = no_of_hcl;
     molec.molecule_type = "2HCl";
 
-    fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &molec, sizeof(molec));
+
+    fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
     char toWrite[150];
-    sprintf(toWrite, "\nFORMARE - TipMolecula: %s, NrMolecula: %d, moment de timp: %s\n",
+    sprintf(toWrite, "\nFORMARE - TipMolecula: %s, NrMolecula: %d, Moment de timp: %lf\n",
             molec.molecule_type, molec.molecule_id, molec.creation_time);
 
     write(fd, toWrite, strlen(toWrite));
@@ -292,26 +248,26 @@ void *hcl_func(void *sent_value)
     }
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "\nTERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "hydrogen", h1, asctime(timeinfo));
+    sprintf(toWrite, "\nTERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "hydrogen", h1, nanoseconds());
 
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "hydrogen", h2, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "hydrogen", h2, nanoseconds());
 
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "chlorine", cl1, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "chlorine", cl1, nanoseconds());
 
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "chlorine", cl2, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "chlorine", cl2, nanoseconds());
 
     write(fd, toWrite, strlen(toWrite));
 
@@ -342,18 +298,18 @@ void *feno_func(void *sent_value)
     feno_counter++;
     no_of_feno++;
 
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-
     MOLECULE_STRUCT molec;
-    molec.creation_time = asctime(timeinfo);
+    molec.creation_time = nanoseconds();
     molec.max_val = (int)aux;
     molec.molecule_id = no_of_feno;
     molec.molecule_type = "Fe(NO3)2";
 
-    fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &molec, sizeof(molec));
+
+    fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
     char toWrite[150];
-    sprintf(toWrite, "\nFORMARE - TipMolecula: %s, NrMolecula: %d, moment de timp: %s\n",
+    sprintf(toWrite, "\nFORMARE - TipMolecula: %s, NrMolecula: %d, Moment de timp: %lf\n",
             molec.molecule_type, molec.molecule_id, molec.creation_time);
 
     write(fd, toWrite, strlen(toWrite));
@@ -396,56 +352,49 @@ void *feno_func(void *sent_value)
     }
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "iron", fe1, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "iron", fe1, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "nitrogen", n1, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "nitrogen", n1, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "nitrogen", n2, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "nitrogen", n2, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "oxygen", o1, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "oxygen", o1, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "oxygen", o2, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "oxygen", o2, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "oxygen", o3, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "oxygen", o3, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "oxygen", o4, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "oxygen", o4, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "oxygen", o5, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "oxygen", o5, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
 
     toWrite[0] = '\0';
-    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
-            "oxygen", o6, asctime(timeinfo));
+    sprintf(toWrite, "TERMINARE_ATOM - TipAtom: %s, IdAtom: %d, Moment de timp: %lf\n",
+            "oxygen", o6, nanoseconds());
     write(fd, toWrite, strlen(toWrite));
-
-    // timeinfo = localtime(&rawtime);
-    // molec.end_time = asctime(timeinfo);
-    // toWrite[0] = '\0';
-    // sprintf(toWrite, "TERMINARE_MOLECULA - TipMolecula %s, NrMolecula: %d, moment de timp: %s\n",
-    //         molec.molecule_type, molec.molecule_id, molec.end_time);
-    // write(fd, toWrite, strlen(toWrite));
 
     pthread_mutex_unlock(&feno_th_mutex);
 }
@@ -472,8 +421,6 @@ void *hydrogen_func(void *sent_value)
 
         hydrogen_counter++;
         enqueue(h_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         hydrogen_counter -= 2;
 
@@ -495,8 +442,6 @@ void *hydrogen_func(void *sent_value)
         hydrogen_counter++;
 
         enqueue(h_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         pthread_mutex_unlock(&mutex1);
 
@@ -515,8 +460,6 @@ void *chlorine_func(void *sent_value)
     {
         chlorine_counter++;
         enqueue(cl_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         chlorine_counter -= 2;
 
@@ -538,8 +481,6 @@ void *chlorine_func(void *sent_value)
         chlorine_counter++;
 
         enqueue(cl_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         pthread_mutex_unlock(&mutex1);
 
@@ -558,8 +499,7 @@ void *iron_func(void *sent_value)
     {
         iron_counter++;
         enqueue(fe_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
+
         iron_counter--;
         nitrogen_counter -= 2;
         sem_post(&nitrogen);
@@ -583,8 +523,6 @@ void *iron_func(void *sent_value)
         iron_counter++;
 
         enqueue(fe_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         pthread_mutex_unlock(&mutex2);
         sem_wait(&iron);
@@ -602,8 +540,7 @@ void *nitrogen_func(void *sent_value)
     {
         nitrogen_counter++;
         enqueue(n_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
+
         nitrogen_counter -= 2;
         sem_post(&nitrogen);
         sem_post(&nitrogen);
@@ -628,8 +565,6 @@ void *nitrogen_func(void *sent_value)
         nitrogen_counter++;
 
         enqueue(n_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         pthread_mutex_unlock(&mutex2);
         sem_wait(&nitrogen);
@@ -644,8 +579,6 @@ void *oxygen_func(void *sent_value)
 
     if (iron_counter >= 1 && nitrogen_counter >= 2 && oxygen_counter >= 5)
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         oxygen_counter++;
 
@@ -678,8 +611,6 @@ void *oxygen_func(void *sent_value)
         //printf("o+: %d\n", oxygen_counter);
 
         enqueue(o_q, aux->atom_id);
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         pthread_mutex_unlock(&mutex2);
         sem_wait(&oxygen);
@@ -692,6 +623,13 @@ int main(int argc, char **argv)
     {
         printf("Numar gresit de argumente\n");
         exit(0);
+    }
+
+    system(argv[2]);
+    if (clock_gettime(CLOCK_REALTIME, &start) == -1)
+    {
+        perror("clock gettime");
+        return EXIT_FAILURE;
     }
 
     h_q = create(10000);
@@ -761,100 +699,109 @@ int main(int argc, char **argv)
 
     for (int i = 0; i < h_nr; i++)
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         atom_time_h[i].max_val = number_of_fecl2_molecules;
         atom_time_h[i].atom_id = i;
         atom_time_h[i].atom_type = "hydrogen";
-        atom_time_h[i].creation_time = asctime(timeinfo);
+        atom_time_h[i].creation_time = nanoseconds();
 
         pthread_create(&h_th[i], NULL, hydrogen_func, (void *)&atom_time_h[i]);
 
         if (ok == 0)
-            fd = open("log.dat", O_CREAT | O_TRUNC | O_RDWR, 0777);
+            fd = open("strings.dat", O_CREAT | O_TRUNC | O_RDWR, 0777);
         else
-            fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+            fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         ok = 1;
         char aux[150];
-        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
+        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d,  Moment de timp: %lf \n",
                 atom_time_h[i].atom_type, atom_time_h[i].atom_id, atom_time_h[i].creation_time);
 
         write(fd, aux, strlen(aux));
     }
+
+    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs,&atom_time_h,sizeof(atom_time_h));
+
     for (int i = 0; i < cl_nr; i++)
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         atom_time_cl[i].max_val = number_of_fecl2_molecules;
         atom_time_cl[i].atom_id = i;
         atom_time_cl[i].atom_type = "chlorine";
-        atom_time_cl[i].creation_time = asctime(timeinfo);
+        atom_time_cl[i].creation_time = nanoseconds();
 
         pthread_create(&cl_th[i], NULL, chlorine_func, (void *)&atom_time_cl[i]);
 
-        fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
-        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
+        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_cl[i].atom_type, atom_time_cl[i].atom_id, atom_time_cl[i].creation_time);
 
         write(fd, aux, strlen(aux));
     }
+
+    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs,&atom_time_cl,sizeof(atom_time_cl));
+
     for (int i = 0; i < fe_nr; i++)
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         atom_time_fe[i].max_val = number_of_fecl2_molecules;
         atom_time_fe[i].atom_id = i;
         atom_time_fe[i].atom_type = "iron";
-        atom_time_fe[i].creation_time = asctime(timeinfo);
+        atom_time_fe[i].creation_time = nanoseconds();
         pthread_create(&fe_th[i], NULL, iron_func, (void *)&atom_time_fe[i]);
 
-        fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
-        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
+        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_fe[i].atom_type, atom_time_fe[i].atom_id, atom_time_fe[i].creation_time);
 
         write(fd, aux, strlen(aux));
     }
+
+    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs,&atom_time_fe,sizeof(atom_time_fe));
+
     for (int i = 0; i < n_nr; i++)
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         atom_time_n[i].max_val = number_of_fecl2_molecules;
         atom_time_n[i].atom_id = i;
         atom_time_n[i].atom_type = "nitrogen";
-        atom_time_n[i].creation_time = asctime(timeinfo);
+        atom_time_n[i].creation_time = nanoseconds();
         pthread_create(&n_th[i], NULL, nitrogen_func, (void *)&atom_time_n[i]);
 
-        fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
-        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
+        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_n[i].atom_type, atom_time_n[i].atom_id, atom_time_n[i].creation_time);
 
         write(fd, aux, strlen(aux));
     }
+
+    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs,&atom_time_n,sizeof(atom_time_n));
+
     for (int i = 0; i < o_nr; i++)
     {
-        time(&rawtime);
-        timeinfo = localtime(&rawtime);
 
         atom_time_o[i].max_val = number_of_fecl2_molecules;
         atom_time_o[i].atom_id = i;
         atom_time_o[i].atom_type = "oxygen";
-        atom_time_o[i].creation_time = asctime(timeinfo);
+        atom_time_o[i].creation_time = nanoseconds();
         pthread_create(&o_th[i], NULL, oxygen_func, (void *)&atom_time_o[i]);
 
-        fd = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
-        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, moment de timp: %s\n",
+        sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_o[i].atom_type, atom_time_o[i].atom_id, atom_time_o[i].creation_time);
 
         write(fd, aux, strlen(aux));
     }
+
+    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs,&atom_time_o,sizeof(atom_time_o));
 
     for (int i = 0; i < h_nr; i++)
         pthread_join(h_th[i], NULL);
@@ -871,11 +818,19 @@ int main(int argc, char **argv)
     for (int i = 0; i < o_nr; i++)
         pthread_join(o_th[i], NULL);
 
-    //write_with_mmap(output);
+    if (big_equation_counter == number_of_fecl2_molecules)
+    {
+        char aux[150];
+        sprintf(aux, "\nCONDITIE_DE_FINAL - %lf\n", nanoseconds());
+        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        write(fd, aux, strlen(aux));
+    }
 
     sem_destroy(&hydrogen);
     sem_destroy(&chlorine);
     sem_destroy(&iron);
     sem_destroy(&nitrogen);
     sem_destroy(&oxygen);
+
+    close(fd);
 }
