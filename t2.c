@@ -1,3 +1,7 @@
+//Hulea Andrei-Florin
+//Grupa 30225
+//Specificatie individuala : 2HCl + Fe(NO3)2 → FeCl2 + 2HNO3
+
 #include <pthread.h>
 #include <stdio.h>
 #include <semaphore.h>
@@ -14,7 +18,7 @@
 int fd;
 int fs;
 struct timespec start;
-#define BILLION 1000000000L;
+#define bill 1000000000L;
 double nanoseconds()
 {
     struct timespec stop;
@@ -23,11 +27,11 @@ double nanoseconds()
 
     if (clock_gettime(CLOCK_REALTIME, &stop) == -1)
     {
-        perror("clock gettime");
-        return EXIT_FAILURE;
+        printf("Error generating time\n");
+        exit(0);
     }
 
-    s = (stop.tv_sec - start.tv_sec) + (double)(stop.tv_nsec - start.tv_nsec) / (double)BILLION;
+    s = (stop.tv_sec - start.tv_sec) + (double)(stop.tv_nsec - start.tv_nsec) / (double)bill;
     return s;
 }
 
@@ -158,7 +162,7 @@ void *final_func(void *sent_value)
         fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
         write(fs, &reac, sizeof(reac));
 
-        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         char toWrite[150];
         sprintf(toWrite, "\nREACTIE - TipReactie: %s, NrReactie: %d, Moment de timp: %lf\n",
                 reac.reaction_type, reac.nr_reactie, reac.reaction_time);
@@ -218,7 +222,7 @@ void *hcl_func(void *sent_value)
     fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
     write(fs, &molec, sizeof(molec));
 
-    fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
     char toWrite[150];
     sprintf(toWrite, "\nFORMARE - TipMolecula: %s, NrMolecula: %d, Moment de timp: %lf\n",
             molec.molecule_type, molec.molecule_id, molec.creation_time);
@@ -307,7 +311,7 @@ void *feno_func(void *sent_value)
     fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
     write(fs, &molec, sizeof(molec));
 
-    fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
     char toWrite[150];
     sprintf(toWrite, "\nFORMARE - TipMolecula: %s, NrMolecula: %d, Moment de timp: %lf\n",
             molec.molecule_type, molec.molecule_id, molec.creation_time);
@@ -619,13 +623,23 @@ void *oxygen_func(void *sent_value)
 
 int main(int argc, char **argv)
 {
-    if (argc != 2)
+         int number_of_fecl2_molecules;
+    if (argc == 2)
+    {
+        number_of_fecl2_molecules= atoi(argv[1]);
+        system(argv[2]);
+    }
+    else if (argc == 3)
+    {
+        number_of_fecl2_molecules = atoi(argv[2]);
+        system(argv[3]);
+    }
+    else
     {
         printf("Numar gresit de argumente\n");
         exit(0);
     }
 
-    system(argv[2]);
     if (clock_gettime(CLOCK_REALTIME, &start) == -1)
     {
         perror("clock gettime");
@@ -640,8 +654,6 @@ int main(int argc, char **argv)
 
     hcl_q = create(10000);
     feno_q = create(10000);
-
-    int number_of_fecl2_molecules = atoi(argv[1]);
 
     if (sem_init(&hydrogen, 0, 0) == -1)
     {
@@ -668,24 +680,11 @@ int main(int argc, char **argv)
         perror("error initilalizing o semaphore\n");
     }
 
-    srand(time(NULL));
-    // int h_nr = rand() % 10 + 2 * number_of_fecl2_molecules;
-    // int cl_nr = rand() % 10 + 2 * number_of_fecl2_molecules;
-    // int fe_nr = rand() % 10 + 1 * number_of_fecl2_molecules;
-    // int n_nr = rand() % 10 + 2 * number_of_fecl2_molecules;
-    // int o_nr = rand() % 10 + 6 * number_of_fecl2_molecules;
-
     int h_nr = 2 * number_of_fecl2_molecules;
     int cl_nr = 2 * number_of_fecl2_molecules;
     int fe_nr = 1 * number_of_fecl2_molecules;
     int n_nr = 2 * number_of_fecl2_molecules;
     int o_nr = 6 * number_of_fecl2_molecules;
-
-    // printf("h nr : %d\n", h_nr);
-    // printf("cl nr : %d\n", cl_nr);
-    // printf("fe nr : %d\n", fe_nr);
-    // printf("n nr : %d\n", n_nr);
-    // printf("o nr : %d\n\n", o_nr);
 
     ATOM_STRUCT atom_time_h[h_nr];
     ATOM_STRUCT atom_time_cl[cl_nr];
@@ -708,9 +707,9 @@ int main(int argc, char **argv)
         pthread_create(&h_th[i], NULL, hydrogen_func, (void *)&atom_time_h[i]);
 
         if (ok == 0)
-            fd = open("strings.dat", O_CREAT | O_TRUNC | O_RDWR, 0777);
+            fd = open("log.txt", O_CREAT | O_TRUNC | O_RDWR, 0777);
         else
-            fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+            fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         ok = 1;
         char aux[150];
         sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d,  Moment de timp: %lf \n",
@@ -719,8 +718,8 @@ int main(int argc, char **argv)
         write(fd, aux, strlen(aux));
     }
 
-    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
-    write(fs,&atom_time_h,sizeof(atom_time_h));
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &atom_time_h, sizeof(atom_time_h));
 
     for (int i = 0; i < cl_nr; i++)
     {
@@ -732,7 +731,7 @@ int main(int argc, char **argv)
 
         pthread_create(&cl_th[i], NULL, chlorine_func, (void *)&atom_time_cl[i]);
 
-        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
         sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_cl[i].atom_type, atom_time_cl[i].atom_id, atom_time_cl[i].creation_time);
@@ -740,8 +739,8 @@ int main(int argc, char **argv)
         write(fd, aux, strlen(aux));
     }
 
-    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
-    write(fs,&atom_time_cl,sizeof(atom_time_cl));
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &atom_time_cl, sizeof(atom_time_cl));
 
     for (int i = 0; i < fe_nr; i++)
     {
@@ -752,7 +751,7 @@ int main(int argc, char **argv)
         atom_time_fe[i].creation_time = nanoseconds();
         pthread_create(&fe_th[i], NULL, iron_func, (void *)&atom_time_fe[i]);
 
-        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
         sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_fe[i].atom_type, atom_time_fe[i].atom_id, atom_time_fe[i].creation_time);
@@ -760,8 +759,8 @@ int main(int argc, char **argv)
         write(fd, aux, strlen(aux));
     }
 
-    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
-    write(fs,&atom_time_fe,sizeof(atom_time_fe));
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &atom_time_fe, sizeof(atom_time_fe));
 
     for (int i = 0; i < n_nr; i++)
     {
@@ -772,7 +771,7 @@ int main(int argc, char **argv)
         atom_time_n[i].creation_time = nanoseconds();
         pthread_create(&n_th[i], NULL, nitrogen_func, (void *)&atom_time_n[i]);
 
-        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
         sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_n[i].atom_type, atom_time_n[i].atom_id, atom_time_n[i].creation_time);
@@ -780,8 +779,8 @@ int main(int argc, char **argv)
         write(fd, aux, strlen(aux));
     }
 
-    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
-    write(fs,&atom_time_n,sizeof(atom_time_n));
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &atom_time_n, sizeof(atom_time_n));
 
     for (int i = 0; i < o_nr; i++)
     {
@@ -792,7 +791,7 @@ int main(int argc, char **argv)
         atom_time_o[i].creation_time = nanoseconds();
         pthread_create(&o_th[i], NULL, oxygen_func, (void *)&atom_time_o[i]);
 
-        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         char aux[150];
         sprintf(aux, "CREARE - TipAtom: %s, IdAtom: %d, Moment de timp: %lf \n",
                 atom_time_o[i].atom_type, atom_time_o[i].atom_id, atom_time_o[i].creation_time);
@@ -800,8 +799,8 @@ int main(int argc, char **argv)
         write(fd, aux, strlen(aux));
     }
 
-    fs = open("log.dat",O_CREAT | O_APPEND | O_RDWR, 0777);
-    write(fs,&atom_time_o,sizeof(atom_time_o));
+    fs = open("log.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+    write(fs, &atom_time_o, sizeof(atom_time_o));
 
     for (int i = 0; i < h_nr; i++)
         pthread_join(h_th[i], NULL);
@@ -822,7 +821,7 @@ int main(int argc, char **argv)
     {
         char aux[150];
         sprintf(aux, "\nCONDITIE_DE_FINAL - %lf\n", nanoseconds());
-        fd = open("strings.dat", O_CREAT | O_APPEND | O_RDWR, 0777);
+        fd = open("log.txt", O_CREAT | O_APPEND | O_RDWR, 0777);
         write(fd, aux, strlen(aux));
     }
 
