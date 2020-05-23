@@ -1,0 +1,512 @@
+CREARE - TipAtom: hydrogen, IdAtom: 0,  Moment de timp: 0.000077 
+CREARE - TipAtom: hydrogen, IdAtom: 1,  Moment de timp: 0.000125 
+CREARE - TipAtom: hydrogen, IdAtom: 2,  Moment de timp: 0.000150 
+CREARE - TipAtom: hydrogen, IdAtom: 3,  Moment de timp: 0.000167 
+CREARE - TipAtom: hydrogen, IdAtom: 4,  Moment de timp: 0.000183 
+CREARE - TipAtom: hydrogen, IdAtom: 5,  Moment de timp: 0.000199 
+CREARE - TipAtom: hydrogen, IdAtom: 6,  Moment de timp: 0.000216 
+CREARE - TipAtom: hydrogen, IdAtom: 7,  Moment de timp: 0.000234 
+CREARE - TipAtom: hydrogen, IdAtom: 8,  Moment de timp: 0.000251 
+CREARE - TipAtom: hydrogen, IdAtom: 9,  Moment de timp: 0.000267 
+CREARE - TipAtom: hydrogen, IdAtom: 10,  Moment de timp: 0.000283 
+CREARE - TipAtom: hydrogen, IdAtom: 11,  Moment de timp: 0.000299 
+CREARE - TipAtom: hydrogen, IdAtom: 12,  Moment de timp: 0.000315 
+CREARE - TipAtom: hydrogen, IdAtom: 13,  Moment de timp: 0.000331 
+CREARE - TipAtom: hydrogen, IdAtom: 14,  Moment de timp: 0.000347 
+CREARE - TipAtom: hydrogen, IdAtom: 15,  Moment de timp: 0.000365 
+CREARE - TipAtom: hydrogen, IdAtom: 16,  Moment de timp: 0.000381 
+CREARE - TipAtom: hydrogen, IdAtom: 17,  Moment de timp: 0.000398 
+CREARE - TipAtom: hydrogen, IdAtom: 18,  Moment de timp: 0.000414 
+CREARE - TipAtom: hydrogen, IdAtom: 19,  Moment de timp: 0.000435 
+CREARE - TipAtom: chlorine, IdAtom: 0, Moment de timp: 0.000455 
+CREARE - TipAtom: chlorine, IdAtom: 1, Moment de timp: 0.000472 
+CREARE - TipAtom: chlorine, IdAtom: 2, Moment de timp: 0.000488 
+CREARE - TipAtom: chlorine, IdAtom: 3, Moment de timp: 0.000504 
+CREARE - TipAtom: chlorine, IdAtom: 4, Moment de timp: 0.000521 
+CREARE - TipAtom: chlorine, IdAtom: 5, Moment de timp: 0.000537 
+CREARE - TipAtom: chlorine, IdAtom: 6, Moment de timp: 0.000553 
+CREARE - TipAtom: chlorine, IdAtom: 7, Moment de timp: 0.000569 
+CREARE - TipAtom: chlorine, IdAtom: 8, Moment de timp: 0.000585 
+CREARE - TipAtom: chlorine, IdAtom: 9, Moment de timp: 0.000619 
+CREARE - TipAtom: chlorine, IdAtom: 10, Moment de timp: 0.000637 
+CREARE - TipAtom: chlorine, IdAtom: 11, Moment de timp: 0.000652 
+CREARE - TipAtom: chlorine, IdAtom: 12, Moment de timp: 0.000672 
+CREARE - TipAtom: chlorine, IdAtom: 13, Moment de timp: 0.000689 
+CREARE - TipAtom: chlorine, IdAtom: 14, Moment de timp: 0.000705 
+CREARE - TipAtom: chlorine, IdAtom: 15, Moment de timp: 0.000722 
+CREARE - TipAtom: chlorine, IdAtom: 16, Moment de timp: 0.000738 
+CREARE - TipAtom: chlorine, IdAtom: 17, Moment de timp: 0.000755 
+CREARE - TipAtom: chlorine, IdAtom: 18, Moment de timp: 0.000772 
+CREARE - TipAtom: chlorine, IdAtom: 19, Moment de timp: 0.000788 
+CREARE - TipAtom: iron, IdAtom: 0, Moment de timp: 0.000808 
+CREARE - TipAtom: iron, IdAtom: 1, Moment de timp: 0.000824 
+CREARE - TipAtom: iron, IdAtom: 2, Moment de timp: 0.000840 
+CREARE - TipAtom: iron, IdAtom: 3, Moment de timp: 0.000856 
+CREARE - TipAtom: iron, IdAtom: 4, Moment de timp: 0.000873 
+CREARE - TipAtom: iron, IdAtom: 5, Moment de timp: 0.000892 
+CREARE - TipAtom: iron, IdAtom: 6, Moment de timp: 0.000908 
+CREARE - TipAtom: iron, IdAtom: 7, Moment de timp: 0.000924 
+CREARE - TipAtom: iron, IdAtom: 8, Moment de timp: 0.000940 
+CREARE - TipAtom: iron, IdAtom: 9, Moment de timp: 0.000958 
+CREARE - TipAtom: nitrogen, IdAtom: 0, Moment de timp: 0.000977 
+CREARE - TipAtom: nitrogen, IdAtom: 1, Moment de timp: 0.000994 
+CREARE - TipAtom: nitrogen, IdAtom: 2, Moment de timp: 0.001010 
+CREARE - TipAtom: nitrogen, IdAtom: 3, Moment de timp: 0.001027 
+CREARE - TipAtom: nitrogen, IdAtom: 4, Moment de timp: 0.001042 
+CREARE - TipAtom: nitrogen, IdAtom: 5, Moment de timp: 0.001058 
+CREARE - TipAtom: nitrogen, IdAtom: 6, Moment de timp: 0.001073 
+CREARE - TipAtom: nitrogen, IdAtom: 7, Moment de timp: 0.001091 
+CREARE - TipAtom: nitrogen, IdAtom: 8, Moment de timp: 0.001107 
+CREARE - TipAtom: nitrogen, IdAtom: 9, Moment de timp: 0.001125 
+CREARE - TipAtom: nitrogen, IdAtom: 10, Moment de timp: 0.001141 
+CREARE - TipAtom: nitrogen, IdAtom: 11, Moment de timp: 0.001157 
+CREARE - TipAtom: nitrogen, IdAtom: 12, Moment de timp: 0.001175 
+CREARE - TipAtom: nitrogen, IdAtom: 13, Moment de timp: 0.001198 
+CREARE - TipAtom: nitrogen, IdAtom: 14, Moment de timp: 0.001214 
+CREARE - TipAtom: nitrogen, IdAtom: 15, Moment de timp: 0.001230 
+CREARE - TipAtom: nitrogen, IdAtom: 16, Moment de timp: 0.001245 
+CREARE - TipAtom: nitrogen, IdAtom: 17, Moment de timp: 0.001263 
+CREARE - TipAtom: nitrogen, IdAtom: 18, Moment de timp: 0.001279 
+CREARE - TipAtom: nitrogen, IdAtom: 19, Moment de timp: 0.001294 
+CREARE - TipAtom: oxygen, IdAtom: 0, Moment de timp: 0.001316 
+CREARE - TipAtom: oxygen, IdAtom: 1, Moment de timp: 0.001331 
+CREARE - TipAtom: oxygen, IdAtom: 2, Moment de timp: 0.001349 
+CREARE - TipAtom: oxygen, IdAtom: 3, Moment de timp: 0.001365 
+CREARE - TipAtom: oxygen, IdAtom: 4, Moment de timp: 0.001381 
+CREARE - TipAtom: oxygen, IdAtom: 5, Moment de timp: 0.001397 
+CREARE - TipAtom: oxygen, IdAtom: 6, Moment de timp: 0.001412 
+CREARE - TipAtom: oxygen, IdAtom: 7, Moment de timp: 0.001431 
+CREARE - TipAtom: oxygen, IdAtom: 8, Moment de timp: 0.001447 
+CREARE - TipAtom: oxygen, IdAtom: 9, Moment de timp: 0.001463 
+CREARE - TipAtom: oxygen, IdAtom: 10, Moment de timp: 0.001483 
+CREARE - TipAtom: oxygen, IdAtom: 11, Moment de timp: 0.001499 
+CREARE - TipAtom: oxygen, IdAtom: 12, Moment de timp: 0.001520 
+CREARE - TipAtom: oxygen, IdAtom: 13, Moment de timp: 0.001535 
+CREARE - TipAtom: oxygen, IdAtom: 14, Moment de timp: 0.001551 
+CREARE - TipAtom: oxygen, IdAtom: 15, Moment de timp: 0.004402 
+CREARE - TipAtom: oxygen, IdAtom: 16, Moment de timp: 0.004425 
+CREARE - TipAtom: oxygen, IdAtom: 17, Moment de timp: 0.004440 
+CREARE - TipAtom: oxygen, IdAtom: 18, Moment de timp: 0.004458 
+CREARE - TipAtom: oxygen, IdAtom: 19, Moment de timp: 0.004475 
+CREARE - TipAtom: oxygen, IdAtom: 20, Moment de timp: 0.004508 
+CREARE - TipAtom: oxygen, IdAtom: 21, Moment de timp: 0.004527 
+CREARE - TipAtom: oxygen, IdAtom: 22, Moment de timp: 0.004546 
+CREARE - TipAtom: oxygen, IdAtom: 23, Moment de timp: 0.004562 
+CREARE - TipAtom: oxygen, IdAtom: 24, Moment de timp: 0.004578 
+CREARE - TipAtom: oxygen, IdAtom: 25, Moment de timp: 0.004596 
+CREARE - TipAtom: oxygen, IdAtom: 26, Moment de timp: 0.004612 
+CREARE - TipAtom: oxygen, IdAtom: 27, Moment de timp: 0.004628 
+CREARE - TipAtom: oxygen, IdAtom: 28, Moment de timp: 0.004644 
+CREARE - TipAtom: oxygen, IdAtom: 29, Moment de timp: 0.004659 
+CREARE - TipAtom: oxygen, IdAtom: 30, Moment de timp: 0.004679 
+CREARE - TipAtom: oxygen, IdAtom: 31, Moment de timp: 0.004694 
+CREARE - TipAtom: oxygen, IdAtom: 32, Moment de timp: 0.004710 
+CREARE - TipAtom: oxygen, IdAtom: 33, Moment de timp: 0.004726 
+CREARE - TipAtom: oxygen, IdAtom: 34, Moment de timp: 0.004742 
+CREARE - TipAtom: oxygen, IdAtom: 35, Moment de timp: 0.004760 
+CREARE - TipAtom: oxygen, IdAtom: 36, Moment de timp: 0.004777 
+CREARE - TipAtom: oxygen, IdAtom: 37, Moment de timp: 0.004794 
+CREARE - TipAtom: oxygen, IdAtom: 38, Moment de timp: 0.004809 
+CREARE - TipAtom: oxygen, IdAtom: 39, Moment de timp: 0.004825 
+CREARE - TipAtom: oxygen, IdAtom: 40, Moment de timp: 0.004843 
+CREARE - TipAtom: oxygen, IdAtom: 41, Moment de timp: 0.004859 
+CREARE - TipAtom: oxygen, IdAtom: 42, Moment de timp: 0.004875 
+CREARE - TipAtom: oxygen, IdAtom: 43, Moment de timp: 0.004890 
+CREARE - TipAtom: oxygen, IdAtom: 44, Moment de timp: 0.004907 
+CREARE - TipAtom: oxygen, IdAtom: 45, Moment de timp: 0.004925 
+CREARE - TipAtom: oxygen, IdAtom: 46, Moment de timp: 0.004941 
+CREARE - TipAtom: oxygen, IdAtom: 47, Moment de timp: 0.004957 
+CREARE - TipAtom: oxygen, IdAtom: 48, Moment de timp: 0.004973 
+CREARE - TipAtom: oxygen, IdAtom: 49, Moment de timp: 0.004989 
+CREARE - TipAtom: oxygen, IdAtom: 50, Moment de timp: 0.005007 
+CREARE - TipAtom: oxygen, IdAtom: 51, Moment de timp: 0.005024 
+CREARE - TipAtom: oxygen, IdAtom: 52, Moment de timp: 0.005040 
+CREARE - TipAtom: oxygen, IdAtom: 53, Moment de timp: 0.005056 
+CREARE - TipAtom: oxygen, IdAtom: 54, Moment de timp: 0.005072 
+CREARE - TipAtom: oxygen, IdAtom: 55, Moment de timp: 0.005089 
+CREARE - TipAtom: oxygen, IdAtom: 56, Moment de timp: 0.005105 
+CREARE - TipAtom: oxygen, IdAtom: 57, Moment de timp: 0.005125 
+CREARE - TipAtom: oxygen, IdAtom: 58, Moment de timp: 0.005142 
+CREARE - TipAtom: oxygen, IdAtom: 59, Moment de timp: 0.005158 
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 1, Moment de timp: 0.004271
+->TipAtom: hydrogen, IdAtom: 6
+->TipAtom: hydrogen, IdAtom: 7
+->TipAtom: chlorine, IdAtom: 10
+->TipAtom: chlorine, IdAtom: 12
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 6, Moment de timp: 0.005193
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 7, Moment de timp: 0.005197
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 10, Moment de timp: 0.005201
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 12, Moment de timp: 0.005205
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 1, Moment de timp: 0.006024
+->TipAtom: iron, IdAtom: 1
+->TipAtom: nitrogen, IdAtom: 1
+->TipAtom: nitrogen, IdAtom: 0
+->TipAtom: oxygen, IdAtom: 2
+->TipAtom: oxygen, IdAtom: 5
+->TipAtom: oxygen, IdAtom: 7
+->TipAtom: oxygen, IdAtom: 0
+->TipAtom: oxygen, IdAtom: 1
+->TipAtom: oxygen, IdAtom: 3
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 1, Moment de timp: 0.006052
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 1, Moment de timp: 0.006056
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 0, Moment de timp: 0.006060
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 2, Moment de timp: 0.006064
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 5, Moment de timp: 0.006068
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 7, Moment de timp: 0.006072
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 0, Moment de timp: 0.006076
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 1, Moment de timp: 0.006080
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 3, Moment de timp: 0.006084
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 2, Moment de timp: 0.006219
+->TipAtom: hydrogen, IdAtom: 8
+->TipAtom: hydrogen, IdAtom: 9
+->TipAtom: chlorine, IdAtom: 15
+->TipAtom: chlorine, IdAtom: 18
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 8, Moment de timp: 0.006235
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 9, Moment de timp: 0.006239
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 15, Moment de timp: 0.006243
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 18, Moment de timp: 0.006247
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 1, Moment de timp: 0.006491
+->TipMolecula: HCl, NrMolecula: 1
+->TipMolecula: Fe(NO3)2, NrMolecula: 1
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 1, Moment de timp: 0.006506
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 1, Moment de timp: 0.006510
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 3, Moment de timp: 0.006672
+->TipAtom: hydrogen, IdAtom: 10
+->TipAtom: hydrogen, IdAtom: 11
+->TipAtom: chlorine, IdAtom: 0
+->TipAtom: chlorine, IdAtom: 2
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 10, Moment de timp: 0.006687
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 11, Moment de timp: 0.006691
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 0, Moment de timp: 0.006695
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 2, Moment de timp: 0.006699
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 2, Moment de timp: 0.009113
+->TipAtom: iron, IdAtom: 3
+->TipAtom: nitrogen, IdAtom: 2
+->TipAtom: nitrogen, IdAtom: 3
+->TipAtom: oxygen, IdAtom: 6
+->TipAtom: oxygen, IdAtom: 4
+->TipAtom: oxygen, IdAtom: 8
+->TipAtom: oxygen, IdAtom: 9
+->TipAtom: oxygen, IdAtom: 10
+->TipAtom: oxygen, IdAtom: 11
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 3, Moment de timp: 0.009139
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 2, Moment de timp: 0.009143
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 3, Moment de timp: 0.009147
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 6, Moment de timp: 0.009151
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 4, Moment de timp: 0.009155
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 8, Moment de timp: 0.009159
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 9, Moment de timp: 0.009163
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 10, Moment de timp: 0.009167
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 11, Moment de timp: 0.009171
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 4, Moment de timp: 0.009182
+->TipAtom: hydrogen, IdAtom: 13
+->TipAtom: hydrogen, IdAtom: 15
+->TipAtom: chlorine, IdAtom: 3
+->TipAtom: chlorine, IdAtom: 5
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 13, Moment de timp: 0.009199
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 15, Moment de timp: 0.009203
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 3, Moment de timp: 0.009207
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 5, Moment de timp: 0.009211
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 2, Moment de timp: 0.009236
+->TipMolecula: HCl, NrMolecula: 2
+->TipMolecula: Fe(NO3)2, NrMolecula: 2
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 2, Moment de timp: 0.009249
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 2, Moment de timp: 0.009253
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 5, Moment de timp: 0.009286
+->TipAtom: hydrogen, IdAtom: 16
+->TipAtom: hydrogen, IdAtom: 17
+->TipAtom: chlorine, IdAtom: 6
+->TipAtom: chlorine, IdAtom: 8
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 16, Moment de timp: 0.009300
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 17, Moment de timp: 0.009304
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 6, Moment de timp: 0.009308
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 8, Moment de timp: 0.009312
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 3, Moment de timp: 0.009337
+->TipAtom: iron, IdAtom: 4
+->TipAtom: nitrogen, IdAtom: 4
+->TipAtom: nitrogen, IdAtom: 5
+->TipAtom: oxygen, IdAtom: 12
+->TipAtom: oxygen, IdAtom: 13
+->TipAtom: oxygen, IdAtom: 14
+->TipAtom: oxygen, IdAtom: 18
+->TipAtom: oxygen, IdAtom: 19
+->TipAtom: oxygen, IdAtom: 23
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 4, Moment de timp: 0.009357
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 4, Moment de timp: 0.009361
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 5, Moment de timp: 0.009365
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 12, Moment de timp: 0.009369
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 13, Moment de timp: 0.009386
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 14, Moment de timp: 0.009390
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 18, Moment de timp: 0.009394
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 19, Moment de timp: 0.009398
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 23, Moment de timp: 0.009402
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 6, Moment de timp: 0.009417
+->TipAtom: hydrogen, IdAtom: 18
+->TipAtom: hydrogen, IdAtom: 19
+->TipAtom: chlorine, IdAtom: 9
+->TipAtom: chlorine, IdAtom: 13
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 18, Moment de timp: 0.009431
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 19, Moment de timp: 0.009435
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 9, Moment de timp: 0.009438
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 13, Moment de timp: 0.009442
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 7, Moment de timp: 0.009467
+->TipAtom: hydrogen, IdAtom: 12
+->TipAtom: hydrogen, IdAtom: 14
+->TipAtom: chlorine, IdAtom: 14
+->TipAtom: chlorine, IdAtom: 17
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 12, Moment de timp: 0.009481
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 14, Moment de timp: 0.009485
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 14, Moment de timp: 0.009489
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 17, Moment de timp: 0.009493
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 3, Moment de timp: 0.009519
+->TipMolecula: HCl, NrMolecula: 3
+->TipMolecula: Fe(NO3)2, NrMolecula: 3
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 3, Moment de timp: 0.009531
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 3, Moment de timp: 0.009535
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 4, Moment de timp: 0.009567
+->TipAtom: iron, IdAtom: 5
+->TipAtom: nitrogen, IdAtom: 6
+->TipAtom: nitrogen, IdAtom: 7
+->TipAtom: oxygen, IdAtom: 27
+->TipAtom: oxygen, IdAtom: 29
+->TipAtom: oxygen, IdAtom: 34
+->TipAtom: oxygen, IdAtom: 21
+->TipAtom: oxygen, IdAtom: 24
+->TipAtom: oxygen, IdAtom: 30
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 5, Moment de timp: 0.009588
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 6, Moment de timp: 0.009595
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 7, Moment de timp: 0.009600
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 27, Moment de timp: 0.009603
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 29, Moment de timp: 0.009607
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 34, Moment de timp: 0.009613
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 21, Moment de timp: 0.009617
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 24, Moment de timp: 0.009621
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 30, Moment de timp: 0.009625
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 8, Moment de timp: 0.009636
+->TipAtom: hydrogen, IdAtom: 5
+->TipAtom: hydrogen, IdAtom: 4
+->TipAtom: chlorine, IdAtom: 7
+->TipAtom: chlorine, IdAtom: 19
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 5, Moment de timp: 0.009649
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 4, Moment de timp: 0.009653
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 7, Moment de timp: 0.009657
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 19, Moment de timp: 0.009661
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 9, Moment de timp: 0.009688
+->TipAtom: hydrogen, IdAtom: 3
+->TipAtom: hydrogen, IdAtom: 2
+->TipAtom: chlorine, IdAtom: 1
+->TipAtom: chlorine, IdAtom: 11
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 3, Moment de timp: 0.009702
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 2, Moment de timp: 0.009706
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 1, Moment de timp: 0.009710
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 11, Moment de timp: 0.009713
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 4, Moment de timp: 0.009739
+->TipMolecula: HCl, NrMolecula: 4
+->TipMolecula: Fe(NO3)2, NrMolecula: 4
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 4, Moment de timp: 0.009750
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 4, Moment de timp: 0.009754
+
+FORMARE - TipMolecula: 2HCl, NrMolecula: 10, Moment de timp: 0.009785
+->TipAtom: hydrogen, IdAtom: 1
+->TipAtom: hydrogen, IdAtom: 0
+->TipAtom: chlorine, IdAtom: 4
+->TipAtom: chlorine, IdAtom: 16
+
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 1, Moment de timp: 0.009799
+TERMINARE_ATOM - TipAtom: hydrogen, IdAtom: 0, Moment de timp: 0.009803
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 4, Moment de timp: 0.009807
+TERMINARE_ATOM - TipAtom: chlorine, IdAtom: 16, Moment de timp: 0.009811
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 5, Moment de timp: 0.010147
+->TipAtom: iron, IdAtom: 0
+->TipAtom: nitrogen, IdAtom: 8
+->TipAtom: nitrogen, IdAtom: 9
+->TipAtom: oxygen, IdAtom: 33
+->TipAtom: oxygen, IdAtom: 35
+->TipAtom: oxygen, IdAtom: 25
+->TipAtom: oxygen, IdAtom: 31
+->TipAtom: oxygen, IdAtom: 32
+->TipAtom: oxygen, IdAtom: 26
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 0, Moment de timp: 0.010173
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 8, Moment de timp: 0.010177
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 9, Moment de timp: 0.010181
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 33, Moment de timp: 0.010185
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 35, Moment de timp: 0.010189
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 25, Moment de timp: 0.010193
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 31, Moment de timp: 0.010197
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 32, Moment de timp: 0.010201
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 26, Moment de timp: 0.010205
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 5, Moment de timp: 0.010216
+->TipMolecula: HCl, NrMolecula: 5
+->TipMolecula: Fe(NO3)2, NrMolecula: 5
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 5, Moment de timp: 0.010227
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 5, Moment de timp: 0.010231
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 6, Moment de timp: 0.010273
+->TipAtom: iron, IdAtom: 2
+->TipAtom: nitrogen, IdAtom: 10
+->TipAtom: nitrogen, IdAtom: 11
+->TipAtom: oxygen, IdAtom: 28
+->TipAtom: oxygen, IdAtom: 20
+->TipAtom: oxygen, IdAtom: 22
+->TipAtom: oxygen, IdAtom: 36
+->TipAtom: oxygen, IdAtom: 37
+->TipAtom: oxygen, IdAtom: 38
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 2, Moment de timp: 0.010295
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 10, Moment de timp: 0.010299
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 11, Moment de timp: 0.010304
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 28, Moment de timp: 0.010308
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 20, Moment de timp: 0.010312
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 22, Moment de timp: 0.010319
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 36, Moment de timp: 0.010323
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 37, Moment de timp: 0.010327
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 38, Moment de timp: 0.010331
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 6, Moment de timp: 0.010342
+->TipMolecula: HCl, NrMolecula: 6
+->TipMolecula: Fe(NO3)2, NrMolecula: 6
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 6, Moment de timp: 0.010366
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 6, Moment de timp: 0.010370
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 7, Moment de timp: 0.010404
+->TipAtom: iron, IdAtom: 6
+->TipAtom: nitrogen, IdAtom: 12
+->TipAtom: nitrogen, IdAtom: 13
+->TipAtom: oxygen, IdAtom: 17
+->TipAtom: oxygen, IdAtom: 39
+->TipAtom: oxygen, IdAtom: 40
+->TipAtom: oxygen, IdAtom: 41
+->TipAtom: oxygen, IdAtom: 42
+->TipAtom: oxygen, IdAtom: 16
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 6, Moment de timp: 0.010425
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 12, Moment de timp: 0.010429
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 13, Moment de timp: 0.010433
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 17, Moment de timp: 0.010436
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 39, Moment de timp: 0.010440
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 40, Moment de timp: 0.010444
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 41, Moment de timp: 0.010448
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 42, Moment de timp: 0.010452
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 16, Moment de timp: 0.010456
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 7, Moment de timp: 0.010466
+->TipMolecula: HCl, NrMolecula: 7
+->TipMolecula: Fe(NO3)2, NrMolecula: 7
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 7, Moment de timp: 0.010477
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 7, Moment de timp: 0.010481
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 8, Moment de timp: 0.010603
+->TipAtom: iron, IdAtom: 7
+->TipAtom: nitrogen, IdAtom: 14
+->TipAtom: nitrogen, IdAtom: 15
+->TipAtom: oxygen, IdAtom: 43
+->TipAtom: oxygen, IdAtom: 44
+->TipAtom: oxygen, IdAtom: 45
+->TipAtom: oxygen, IdAtom: 46
+->TipAtom: oxygen, IdAtom: 47
+->TipAtom: oxygen, IdAtom: 48
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 7, Moment de timp: 0.010626
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 14, Moment de timp: 0.010630
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 15, Moment de timp: 0.010634
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 43, Moment de timp: 0.010638
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 44, Moment de timp: 0.010642
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 45, Moment de timp: 0.010645
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 46, Moment de timp: 0.010650
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 47, Moment de timp: 0.010654
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 48, Moment de timp: 0.010657
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 8, Moment de timp: 0.010668
+->TipMolecula: HCl, NrMolecula: 8
+->TipMolecula: Fe(NO3)2, NrMolecula: 8
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 8, Moment de timp: 0.010680
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 8, Moment de timp: 0.010684
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 9, Moment de timp: 0.010734
+->TipAtom: iron, IdAtom: 8
+->TipAtom: nitrogen, IdAtom: 16
+->TipAtom: nitrogen, IdAtom: 18
+->TipAtom: oxygen, IdAtom: 15
+->TipAtom: oxygen, IdAtom: 49
+->TipAtom: oxygen, IdAtom: 50
+->TipAtom: oxygen, IdAtom: 51
+->TipAtom: oxygen, IdAtom: 52
+->TipAtom: oxygen, IdAtom: 53
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 8, Moment de timp: 0.010757
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 16, Moment de timp: 0.010761
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 18, Moment de timp: 0.010764
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 15, Moment de timp: 0.010768
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 49, Moment de timp: 0.010772
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 50, Moment de timp: 0.010776
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 51, Moment de timp: 0.010780
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 52, Moment de timp: 0.010787
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 53, Moment de timp: 0.010791
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 9, Moment de timp: 0.010802
+->TipMolecula: HCl, NrMolecula: 9
+->TipMolecula: Fe(NO3)2, NrMolecula: 9
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 9, Moment de timp: 0.010813
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 9, Moment de timp: 0.010817
+
+FORMARE - TipMolecula: Fe(NO3)2, NrMolecula: 10, Moment de timp: 0.010874
+->TipAtom: iron, IdAtom: 9
+->TipAtom: nitrogen, IdAtom: 19
+->TipAtom: nitrogen, IdAtom: 17
+->TipAtom: oxygen, IdAtom: 54
+->TipAtom: oxygen, IdAtom: 55
+->TipAtom: oxygen, IdAtom: 56
+->TipAtom: oxygen, IdAtom: 57
+->TipAtom: oxygen, IdAtom: 58
+->TipAtom: oxygen, IdAtom: 59
+
+TERMINARE_ATOM - TipAtom: iron, IdAtom: 9, Moment de timp: 0.010897
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 19, Moment de timp: 0.010901
+TERMINARE_ATOM - TipAtom: nitrogen, IdAtom: 17, Moment de timp: 0.010905
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 54, Moment de timp: 0.010909
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 55, Moment de timp: 0.010913
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 56, Moment de timp: 0.010917
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 57, Moment de timp: 0.010921
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 58, Moment de timp: 0.010925
+TERMINARE_ATOM - TipAtom: oxygen, IdAtom: 59, Moment de timp: 0.010929
+
+REACTIE - TipReactie: 2HCl + Fe(NO3)2 -> FeCl2 + 2HNO3, NrReactie: 10, Moment de timp: 0.010940
+->TipMolecula: HCl, NrMolecula: 10
+->TipMolecula: Fe(NO3)2, NrMolecula: 10
+TERMINARE_MOLECULA - TipMolecula 2HCl, NrMolecula: 10, Moment de timp: 0.010951
+TERMINARE_MOLECULA - TipMolecula Fe(NO3)2, NrMolecula: 10, Moment de timp: 0.010955
+
+CONDITIE_DE_FINAL - 0.010983
