@@ -1,0 +1,16 @@
+Solutie Tema 2,Hulea Andrei-Florin 30225
+
+	Pentru rezolvarea acestei teme m-am folosit de exemplul problemei cu apa, mai exact primul pseudocod din laboratorul 10. Atomii,moleculele si reactiile i-am creat intr-un mod similar cu cel din problema apei.
+	Am creat un numar de threaduri pentru fiecare tip de atom, iar odata ce un numar suficient de mare au fost create pentru formarea unei molecule, este apelata functia de hcl_bond sau feno_bond, care creeaza molecula 2HCl sau respectiv, Fe(NO3)2. De asemenea, odata ce au fost create suficiente molecule este apelata functia reaction care creeaza un thread pentru realizarea reactiei dintre cele 2 molecule.
+	Sincronizarea a fost realizata cu ajutorul semafoarelor si lacatelor: semafoarele au rolul de a controla ritmul in care se formeaza molecule( cand un atom este format si counter-ul pentru acesta este incrementat, se apeleaza sem_wait , iar cand un atom intra o molecula si counter-ul pentru aceasta este decrementat se apeleaza sem_post) iar lacatele au rolul de a asigura ca se formeazaun singur atom, molecula sau reactie pentru a evita suprascrierile si executarile haotice.
+	Conditia de final este atunci cand sunt create N molecule de FeCl2, ceea ce este sinomim cu realizarea a N reactii, deci threadurile se vor opri de bunavoie atunci cand sunt create un numar de threaduri egal cu valoarea data de la tastatura. 
+	Am implementat o structura de coada pentru a stoca id-urile atomilor si moleculelor in ordinea formarii lor datorita functionarii acesteia(FIFO), motiv pentru care am facut ca programul sa poata fi rulat cu sau fara optiunea de -o deoarece tot timpul moleculele sunt formate cu atomii in ordinea formarii acestora.
+	Pentru generarea timpului m-am folosit de functia clock_gettime pentru a calcula timpul in nanosecunde( diferenta dintre un timp de start global si un timp de stop care e actualizat de fiecare data cand este apelata functia nanoseconds) pentru fiecare log afisat in fisier.
+	Am generat 2 fisiere, unul log.txt unde se afla continutul care ar trebui sa fie prezent sin fisierul log.dat dar sub forma de string, si fisierul log.dat unde am stocat structurile.
+
+Probleme nerezolvate:
+-nu am folosit memorie partajata. Am incercat stocarea datelor ce trebuie afisate intr-un string pe care l-as fi scris in fisier odata ce programul se termina, dar am renuntat ulterior
+-am generat un numar exact de threaduri, programul nu functioneaza cu un numar random de threaduri pentru atomi
+
+
+

@@ -1,0 +1,18 @@
+Reactia care trebuie simulata este:
+
+2HCl + Fe(NO3)2 → FeCl2 + 2HNO3
+
+Deci initial se creeaza threadurile care simuleaza atomii de H, Cl, Fe, O, N
+
+Acesti atomi vor forma moleculele 2HCl + Fe(NO3)2
+care vor intra in reactie si formeaza moleculele: FeCl2 + 2HNO3
+
+Conditia de terminare: daca s-au format N molecule de FeCl2
+
+N se specifica ca si argument din linia de comanda.
+
+Apelul programului:
+
+    ./t2  N 
+    ./t2 -o N     daca se doreste ca atomii sa intre in molecule in ordinea in care au aparut (au fost creati)
+
